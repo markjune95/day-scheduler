@@ -38,8 +38,8 @@ function createTimeBlock(){
     var submitBtn = $('<button>')
     submitBtn.attr('class', 'btn')
     var saveSymbol = $('<i>')
-    saveSymbol.attr('class', 'fas i')
-    saveSymbol.html('&#xf0c7;')
+    saveSymbol.attr('class', 'fas fa-save')
+    // saveSymbol.html('&#xf0c7;')
 
     submitBtn.append(saveSymbol)
     submitDiv.append(submitBtn)

@@ -64,11 +64,11 @@ textarea {
 }
 
 .saveBtn {
-  display: flex;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
+  
 }
 
 i:hover {
@@ -77,6 +77,16 @@ i:hover {
   transition: all 0.1s ease-in-out;
 }
 .btn{
+  display: flex;
   color: white;
   font-size: 20px;
+  width:min-content;
+  height: min-content;
+  margin-top: 15px;
+}
+
+@media only screen and (max-width: 500px) {
+  .saveBtn{
+    padding: 0px;
+  }
 }
