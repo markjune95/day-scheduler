@@ -29,7 +29,7 @@ function createTimeBlock(){
     textAreaDiv = $('<div>')
     textAreaDiv.attr('class', 'col-10')
     var textArea = $('<textarea>')
-    textArea.attr('class', 'col-11 description')
+    textArea.attr('class', 'col-12 description')
     textAreaDiv.append(textArea)
 
     //create saveBtn-div
