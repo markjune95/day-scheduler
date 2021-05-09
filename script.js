@@ -61,7 +61,6 @@ var currentTime = parseInt(moment().format('H'))
 function appendTimeBlock(){
     
     for(var i = startTimeBlock; i < endTimeBlock + 1; i++){
-        timeSlot.push('')
         createTimeBlock()
         saveSymbol.attr('save',i)
         textArea.addClass(`block-${i}`)
@@ -91,34 +90,46 @@ function setItem(){
 function getItem(){
     var stored = JSON.parse(localStorage.getItem('timeblock'))
     timeSlot = stored
-    for(var i = 0; i < endTimeBlock; i++){
-        textAreaEl = $(`.block-${i}`).val(timeSlot[i])
-        
+    console.log(stored)
+    if(stored !== null){
+        for(var i = 0; i < timeSlot.length; i++){
+            $(`.block-${i}`).val(timeSlot[i])
+        }
     }
-    setItem()
-    
+    else{
+        return;
+    }
     
 }
-
-var saveSlot;
-var textAreaEl;//html element generated in javascript
-
-timeBlockEl.on('click','.btn',(function(event){
-    event.preventDefault()
-    saveSlot = $(event.target).attr('save')
-    textAreaEl =  $(`.block-${saveSlot}`).val()
-    timeSlot.splice(saveSlot, 1, textAreaEl)//save the value in exact index you want
-    setItem()
-    
-    
-})
-)
-
 
 
 //revoke functions
 setCurrenttDay()
 appendTimeBlock()
+
+
+var saveSlot;
+var textAreaEl;//html element generated in javascript
+
+timeBlockEl.on('click','.btn',function(event){
+    event.preventDefault()
+    saveSlot = $(event.target).attr('save')
+    textAreaEl =  $(`.block-${saveSlot}`).val()
+    if(timeSlot == null){
+        timeSlot = ['','','','','','','','','','','','','','','','','','','','','','','','']
+        console.log(timeSlot.length)
+    }
+    timeSlot.splice(saveSlot, 1, textAreaEl)//save the value in exact index you want  
+    setItem()
+   
+    
+})
+getItem()
+
+
+
+    
+
 
 
 
